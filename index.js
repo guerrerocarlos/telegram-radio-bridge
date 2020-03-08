@@ -55,15 +55,16 @@ var outputFileStream = new FileWriter(path.resolve(__dirname, tempWav), {
   sampleRate: 16000,
   channels: 1
 });
-var chatId = 63272048
 
 var bytesSaved = 0
+var silences = 0
 console.log(`Rec in...`, tempWav);
 
 hotwordDetector.on(`silence`, function () {
-  console.log(`Silence...`);
-
-  if (bytesSaved > 0) {
+  console.log(`Silence...`, silences, 'bytes;', bytesSaved);
+  silences++
+  if (bytesSaved > ( 8192 * 6 ) && silences >= 5) {
+    silences = 0
     console.log(`Send!`, tempWav);
     convert(path.resolve(__dirname, tempWav), path.resolve(__dirname, `audio-${ms}.mp3`))
       .then((outputFile) => {
@@ -77,14 +78,15 @@ hotwordDetector.on(`silence`, function () {
       sampleRate: 16000,
       channels: 1
     });
+    bytesSaved = 0
   }
-  bytesSaved = 0
 });
 
 hotwordDetector.on(`sound`, function (buf) {
   console.log(`Sound...`, buf.length);
   outputFileStream.write(buf);
   bytesSaved += buf.length
+  silences = 0
 
   // bot.telegram.sendAudio(chatId, buf, {}, {})
 

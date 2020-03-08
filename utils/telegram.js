@@ -28,9 +28,13 @@ bot.on('voice', async (ctx) => {
             response.data.on('end', () => {
                 console.log('ENDED!')
 
-                player.play(path.resolve(__dirname, 'audio.ogg'), function (err) {
+                player.play(path.resolve(__dirname, '../audio-1234.mp3'), function (err) {
                     if (err) throw err;
+                    player.play(path.resolve(__dirname, 'audio.ogg'), function (err) {
+                        if (err) throw err;
+                    });
                 });
+
             })
         });
 
@@ -44,6 +48,12 @@ bot.on('voice', async (ctx) => {
 
     // return ctx.reply('Hello')
 })
+
+bot.start((ctx) => {
+    console.log(ctx.chat)
+    ctx.reply('Connected through radio link!')
+} 
+)
 
 bot.launch()
 
