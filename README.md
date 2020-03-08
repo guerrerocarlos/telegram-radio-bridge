@@ -5,3 +5,5 @@ Allows to send and receive Telegram Audio messages using cheap Walkie Talkies (P
 ## Bridge hardware
 
 Uses one radio as bridge to the Telegram bot through a (3.5mm TRRS) cable connection.
+
+![Baofeng Radio as Bridge](images/baofeng_bridge.jpg)
