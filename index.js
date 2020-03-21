@@ -46,6 +46,7 @@ hotwordDetector.on(`error`, function (error) {
 
 // var file = fs.createWriteStream(`./out.wav`);
 
+// var chatId = -1001174004002 // Berserk puerto lacreo
 
 // bot.telegram.sendVoice(chatId, { source: path.resolve(__dirname, `test.wav`) })
 
@@ -59,9 +60,11 @@ var outputFileStream = new FileWriter(path.resolve(__dirname, tempWav), {
 var bytesSaved = 0
 var silences = 0
 console.log(`Rec in...`, tempWav);
+var chatId = -466972942
+var chatId = 63272048
 
 hotwordDetector.on(`silence`, function () {
-  console.log(`Silence...`, silences, 'bytes;', bytesSaved);
+  // console.log(`Silence...`, silences, 'bytes;', bytesSaved);
   silences++
   if (bytesSaved > ( 8192 * 6 ) && silences >= 5) {
     silences = 0

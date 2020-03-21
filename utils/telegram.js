@@ -51,7 +51,7 @@ bot.on('voice', async (ctx) => {
 
 bot.start((ctx) => {
     console.log(ctx.chat)
-    ctx.reply('Connected through radio link!')
+    // ctx.reply('Connected through radio link!')
 } 
 )
 
