@@ -1,0 +1,38 @@
+{
+  "name": "telegram-bridge",
+  "version": "1.0.0",
+  "description": "Telegram-HAM Radio Bridge.",
+  "license": "MIT",
+  "keywords": [
+    "telegram",
+    "radio",
+    "ham"
+  ],
+  "main": "library/index.js",
+  "files": [
+    "library/"
+  ],
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "scripts": {
+    "pretest": "eslint library/**.js examples/**.js",
+    "test": "echo \"Error: no test specified\""
+  },
+  "dependencies": {
+    "@google-cloud/speech": "^3.6.0",
+    "axios": "^0.19.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "nan": "^2.11.1",
+    "node-audiorecorder": "^2.0.0",
+    "node-telegram-bot-api": "^0.40.0",
+    "play-sound": "^1.1.3",
+    "snowboy": "1.2.x",
+    "telegraf": "^3.36.0",
+    "wav": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0"
+  }
+}
